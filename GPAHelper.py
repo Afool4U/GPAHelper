@@ -29,7 +29,6 @@ def resize(text):
     height = len(lines) * font.metrics('linespace') + font.metrics("ascent") + text.cget('pady') * 2
     root.geometry(f'{width}x{height}')
     root.update()
-    print(text.winfo_width(), text.winfo_height())
     text.configure(state='disabled')
 
 
@@ -37,9 +36,9 @@ def show_result(content, text):
     text.configure(state='normal')
     text.delete('1.0', 'end')
     # 总学分
-    credit = decimal.Decimal(0)
+    credit = decimal.Decimal('0')
     # 总绩点
-    gpa = decimal.Decimal(0)
+    gpa = decimal.Decimal('0')
     data_io = StringIO(content)
     sheet = DictReader(data_io, delimiter='\t')
     non_gpa_courses = []
